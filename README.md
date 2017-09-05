@@ -1,4 +1,5 @@
 # request-fluture
+[![Build Status](https://travis-ci.org/bfncs/request-fluture.svg?branch=master)](https://travis-ci.org/bfncs/request-fluture)
 
 Simple HTTP requests with [Flutures](https://github.com/fluture-js/Fluture) and [request](https://github.com/request/request).
 

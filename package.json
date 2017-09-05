@@ -16,6 +16,7 @@
   "main": "./src/index.js",
   "license": "MIT",
   "scripts": {
+    "prepublish": "npm run test",
     "test": "jest",
     "test:watch": "jest --watch"
   },

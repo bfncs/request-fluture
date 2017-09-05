@@ -19,7 +19,6 @@ yarn add request-fluture
 
 ## Usage
 
-
 Call the exported function with either a `url` or an `options` object [according to the `request` docs](https://github.com/request/request#requestoptions-callback).
 It returns a `Fluture` for your pending request. You can use the whole [`Fluture API`](https://github.com/fluture-js/Fluture#documentation) to work further with it.
 
@@ -33,19 +32,25 @@ request('http://example.com')
      );
 ```
 
+
 ## Examples
 
 ### Parallel requests
 
+Execute five requests with maximum `5` requests in parallel.
 
 ```js
+const Future = require('fluture');
 const request = require('request-fluture');
 
-request('http://example.com')
-    .fork(
-       error => console.error('Oh no!', error),
-       response => console.log('Got a response!', response)
-     );
+const tenRequests = Array.from(Array(10).keys())
+  .map(resource => request(`http://example.com/${resource}`));
+
+Future.parallel(5, tenRequests)
+  .fork(
+    console.error,
+    results => { results.forEach(console.log); }
+  );
 ```
 
 

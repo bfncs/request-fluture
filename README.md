@@ -5,6 +5,18 @@ Simple HTTP requests with [Flutures](https://github.com/fluture-js/Fluture) and 
 
 This is a wrapper around `request` to offer a Fluture API (instead of callback- or promise-driven).
 
+
+## Install
+
+```bash
+# If you are using npm
+npm install request-fluture
+
+# If you are using yarn
+yarn add request-fluture
+```
+
+
 ## Prior art
 
 This is just a slight extension of a [Gist](https://gist.github.com/Avaq/e7083ffc7972bb1d4c88239b51eb4a79) by @Avaq.

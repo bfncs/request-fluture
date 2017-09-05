@@ -1,0 +1,40 @@
+{
+  "name": "request-fluture",
+  "version": "0.0.1",
+  "description": "Simple HTTP requests with Fluture and request.",
+  "keywords": [
+    "xhr",
+    "http",
+    "https",
+    "promise",
+    "request",
+    "fluture",
+    "functional",
+    "monad",
+    "fantasy-land"
+  ],
+  "main": "./src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "repository": "bfncs/request-fluture",
+  "author": "Marc Löhe (https://github.com/bfncs)",
+  "bugs": {
+    "url": "https://github.com/bfncs/request-fluture/issues"
+  },
+  "homepage": "https://github.com/bfncs/request-fluture",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "fluture": "^7.1.2",
+    "request": "^2.81.0",
+    "stealthy-require": "^1.1.1",
+    "tough-cookie": "^2.3.2"
+  },
+  "devDependencies": {
+    "jest": "^21.0.1"
+  }
+}

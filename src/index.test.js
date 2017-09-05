@@ -6,7 +6,11 @@ const URL = 'http://non-existing.foo.bar';
 
 const TIMEOUT = 1000;
 const createMockRequest = (response, error = null, timeout = TIMEOUT) =>
-  jest.fn((options, cb) => { setTimeout(() => { cb(error, response) }, timeout); });
+  jest.fn((options, cb) => {
+    setTimeout(() => {
+      cb(error, response);
+    }, timeout);
+  });
 
 const PAYLOAD = Symbol();
 const REQUEST_SUCCESS = createMockRequest(PAYLOAD);
@@ -29,14 +33,10 @@ it('fails erronous requests', done => {
   expect.assertions(2);
   const successHandler = jest.fn();
 
-  requestFluture(URL, REQUEST_FAILURE)
-    .fork(
-      error => {
-        expect(error).toEqual(ERROR);
-        expect(successHandler).not.toHaveBeenCalled();
-        done();
-      },
-      successHandler
-    );
+  requestFluture(URL, REQUEST_FAILURE).fork(error => {
+    expect(error).toEqual(ERROR);
+    expect(successHandler).not.toHaveBeenCalled();
+    done();
+  }, successHandler);
   jest.runAllTimers();
 });

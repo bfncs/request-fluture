@@ -16,9 +16,10 @@
   "main": "./src/index.js",
   "license": "MIT",
   "scripts": {
-    "prepublish": "npm run test",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "prepublish": "npm run test",
+    "precommit": "lint-staged"
   },
   "repository": "bfncs/request-fluture",
   "author": "Marc Löhe (https://github.com/bfncs)",
@@ -36,6 +37,15 @@
     "tough-cookie": "^2.3.2"
   },
   "devDependencies": {
-    "jest": "^21.0.1"
+    "husky": "^0.14.3",
+    "jest": "^21.0.1",
+    "lint-staged": "^4.1.0",
+    "prettier": "^1.6.1"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }

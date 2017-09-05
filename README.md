@@ -32,6 +32,21 @@ request('http://example.com')
      );
 ```
 
+Fetch data from a REST API and extract some specific data.
+```js
+const request = require('request-fluture');
+const { encase } = require('fluture');
+
+request({url: 'https://api.github.com/users/github', headers: {'User-Agent': 'request-fluture'}})
+    .map(res => res.body)
+    .chain(encase(JSON.parse))
+    .map(user => user.name)
+    .fork(
+      console.error,
+      name => console.log(`The requested username is ${name}.`)
+    );
+```
+
 
 ## Examples
 

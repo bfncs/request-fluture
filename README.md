@@ -33,6 +33,21 @@ request('http://example.com')
      );
 ```
 
+## Examples
+
+### Parallel requests
+
+
+```js
+const request = require('request-fluture');
+
+request('http://example.com')
+    .fork(
+       error => console.error('Oh no!', error),
+       response => console.log('Got a response!', response)
+     );
+```
+
 
 ## Prior art
 

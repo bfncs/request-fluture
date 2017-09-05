@@ -10,12 +10,8 @@ const request = stealthyRequire(
   module
 );
 
-const requestFluture = (options, requestProvider = request) => Future((reject, resolve) => {
-  const requestInstance = requestProvider(
-    options,
-    (err, res) => err ? reject(err) : resolve(res)
-  );
-
+const requestFluture = (options, requestProvider = request) => Future.node(done => {
+  const requestInstance = requestProvider(options, done);
   return () => requestInstance.abort();
 });
 

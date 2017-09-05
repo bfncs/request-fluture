@@ -35,6 +35,41 @@ request('http://example.com')
 
 ## Examples
 
+### Race
+
+Race multiple requests against each other and resolve to the first settled request.
+
+```js
+const Future = require('fluture');
+const request = require('request-fluture');
+
+// Race two requests against each other…
+request('http://example.com/foo')
+  .race(request('http://example.com/bar'))
+  .fork(console.error, console.log);
+
+// …or race an array of requests
+const first = futures => futures.reduce(Future.race, Future.never);
+first([
+  request('http://example.com/foo'),
+  request('http://example.com/bar'),
+  request('http://example.com/baz')
+])
+  .fork(console.error, console.log);
+```
+
+You can easily implement a timeout for your requests with this:
+
+```js
+const Future = require('fluture');
+const request = require('request-fluture');
+
+request('http://example.com/foo')
+  .race(Future.rejectAfter(1000, 'Timeout'))
+  .fork(console.error, console.log);
+```
+
+
 ### Parallel requests
 
 Execute five requests with maximum `5` requests in parallel.

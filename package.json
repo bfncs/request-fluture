@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/bfncs/request-fluture",
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">= 6"
   },
   "dependencies": {
     "request": "^2.81.0",

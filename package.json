@@ -32,7 +32,6 @@
   },
   "dependencies": {
     "request": "^2.81.0",
-    "stealthy-require": "^1.1.1",
     "tough-cookie": "^2.3.2"
   },
   "devDependencies": {

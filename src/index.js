@@ -1,14 +1,7 @@
 'use strict';
 
 const Future = require('fluture');
-const stealthyRequire = require('stealthy-require');
-
-const request = stealthyRequire(
-  require.cache,
-  () => require('request'),
-  () => require('tough-cookie'),
-  module
-);
+const request = require('request');
 
 const requestFluture = (options, requestProvider = request) =>
   Future((reject, resolve) => {

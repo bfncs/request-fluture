@@ -31,8 +31,7 @@
     "node": ">= 6"
   },
   "dependencies": {
-    "request": "^2.81.0",
-    "tough-cookie": "^2.3.2"
+    "request": "^2.81.0"
   },
   "devDependencies": {
     "fluture": "^10.3.1",

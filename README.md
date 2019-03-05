@@ -20,7 +20,7 @@ yarn add request-fluture fluture
 ## Usage
 
 Call the exported function with either a `url` or an `options` object [according to the `request` docs](https://github.com/request/request#requestoptions-callback).
-It returns a `Fluture` for your pending request. You can use the whole [`Fluture API`](https://github.com/fluture-js/Fluture#documentation) to work further with it.
+It returns a `Fluture` for your pending request. You can use the whole [`Fluture API`](https://github.com/fluture-js/Fluture#documentation) to do stuff with your result.
 
 ```js
 const request = require('request-fluture');
@@ -47,12 +47,23 @@ request({url: 'https://api.github.com/users/github', headers: {'User-Agent': 're
     );
 ```
 
+You can cleanly [`cancel`](https://github.com/fluture-js/Fluture#cancellation) the request fluture anytime after using a [consuming function](https://github.com/fluture-js/Fluture#consuming-futures) like `fork` on it:
+```js
+const request = require('request-fluture');
+
+const cancel = request('http://example.com')
+    .fork(console.error, console.log);
+
+// Cancel the request
+setTimeout(cancel, 1000);
+```
+This is for example also used to cleanly cancel requests whose results are not interesting anymore like when using [`race`](#race), saving your precious bandwidth.
 
 ## Examples
 
 ### Race
 
-Race multiple requests against each other and resolve to the first settled request.
+[Race](https://github.com/fluture-js/Fluture#race) multiple requests against each other and resolve to the first settled request.
 
 ```js
 const Future = require('fluture');

@@ -10,10 +10,10 @@ This is a wrapper around `request` to offer a Fluture API (instead of callback- 
 
 ```bash
 # If you are using npm
-npm install request-fluture fluture
+npm install request-fluture request fluture
 
 # If you are using yarn
-yarn add request-fluture fluture
+yarn add request-fluture request fluture
 ```
 
 

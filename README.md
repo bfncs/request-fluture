@@ -3,17 +3,17 @@
 
 Simple HTTP requests with [Flutures](https://github.com/fluture-js/Fluture) and [request](https://github.com/request/request).
 
-This is a wrapper around `request` to offer a Fluture API (instead of callback- or promise-driven).
+This is a wrapper around `request` to offer a Fluture API (instead of callback- or promise-based).
 
 
 ## Install
 
 ```bash
 # If you are using npm
-npm install request-fluture
+npm install request-fluture fluture
 
 # If you are using yarn
-yarn add request-fluture
+yarn add request-fluture fluture
 ```
 
 

@@ -8,4 +8,7 @@ env:
   - FLUTURE_VERSION=^8.0.0
   - FLUTURE_VERSION=^9.0.0
   - FLUTURE_VERSION=^10.0.0
-before_script: npm i fluture@$FLUTURE_VERSION
+
+before_script:
+  - npm install fluture@FLUTURE_VERSION
+  - npm install request@latest

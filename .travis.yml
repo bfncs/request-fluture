@@ -10,5 +10,5 @@ env:
   - FLUTURE_VERSION=^10.0.0
 
 before_script:
-  - npm install fluture@FLUTURE_VERSION
+  - npm install fluture@$FLUTURE_VERSION
   - npm install request@latest

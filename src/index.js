@@ -11,8 +11,9 @@ const request = stealthyRequire(
 );
 
 const requestFluture = (options, requestProvider = request) =>
-  Future.node(done => {
-    const requestInstance = requestProvider(options, done);
+  Future((reject, resolve) => {
+    const nodeback = (err, res) => (err ? reject(err) : resolve(res));
+    const requestInstance = requestProvider(options, nodeback);
     return () => requestInstance.abort();
   });
 
